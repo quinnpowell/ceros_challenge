@@ -1,7 +1,9 @@
+import { browser } from "protractor";
 import swaglabsLoginPage from "../pages/swagLabsLoginPage.js";
 
 describe ('Swag Labs tests', () => {
     beforeAll(async () => {
+        browser.waitForAngularEnabled(false);
         await swaglabsLoginPage.goto();
     });
 
