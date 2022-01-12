@@ -4,11 +4,9 @@ This project was prepared for the Ceros automation take home challenge. It uses 
 
 I tested this on a clean system, but please feel free to reach out to quinn.powell@gmail.com with any questions or issues. 
 
-- Quinn
-
 ## Setup:
 * Install [Node](http://nodejs.org) (v8.x.x or later)
-* `npm i` to install the project dependencies
+* `npm i` to install the project dependencies (if an error is thrown, see troubleshooting section - it is likely that webdriver-manager needs to be updated)
 
 ## Run tests:
 * run tests via plain Protractor `node_modules/.bin/protractor conf.js`
