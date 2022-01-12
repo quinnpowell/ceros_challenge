@@ -1,5 +1,5 @@
-import { browser } from "protractor";
 import swaglabsLoginPage from "../pages/swagLabsLoginPage.js";
+import swagLabsInventoryPage from "../pages/swagLabsInventoryPage.js";
 
 describe ('Swag Labs tests', () => {
     beforeAll(async () => {
@@ -8,12 +8,15 @@ describe ('Swag Labs tests', () => {
     });
 
     it('should log in with standard user', async ()=> {
+        await swaglabsLoginPage.loginStandardUser();
+        expect(await swagLabsInventoryPage.inventoryPresent()).toBe(true);
     });
 
     it('should add an item to the cart', async () => {
     });
 
     it('should have 6 items on the inventory page', async () => {
+        
     });
 
     it('should complete the purchase process of an item from the inventory', async () => {
