@@ -16,7 +16,9 @@ describe ('Swag Labs tests', () => {
     });
 
     it('should have 6 items on the inventory page', async () => {
-        
+        await swagLabsInventoryPage.goto();
+        let inventoryList = swagLabsInventoryPage.getInventoryList();
+        expect(await inventoryList.count()).toBe(swagLabsInventoryPage.expectedInventoryCount);
     });
 
     it('should complete the purchase process of an item from the inventory', async () => {
