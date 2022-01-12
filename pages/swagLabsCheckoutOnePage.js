@@ -9,6 +9,9 @@ class SwaglabsCheckoutOnePage extends BasePage {
 
     }
 
+     /**
+     * Clicks continue on checkout page one
+     */
     async clickContinueBtn() {
         await element(this.continueBtnBy).click();
     }

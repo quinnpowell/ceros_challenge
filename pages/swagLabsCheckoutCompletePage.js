@@ -9,6 +9,9 @@ class SwaglabsCheckoutOnePage extends BasePage {
         this.checkoutCompleteBy = by.id("checkout-complete-container")
     }
 
+    /**
+     * After completing checkout, wait for the confirmation elements to load
+     */
     async waitForCheckoutComplete() {
         browser.wait(this.inDom(element(this.homeBtnBy)), 5000);
         browser.wait(this.inDom(element(this.checkoutCompleteBy)), 5000);

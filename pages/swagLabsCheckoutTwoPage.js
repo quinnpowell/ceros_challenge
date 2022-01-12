@@ -7,6 +7,9 @@ class SwaglabsCheckoutTwoPage extends BasePage {
         this.finishBtnBy = by.id("finish")
     }
 
+    /**
+     * Clicks finish on checkout page two
+     */
     async clickFinishBtn() {
         await element(this.finishBtnBy).click();
     }

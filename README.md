@@ -1,3 +1,11 @@
+## Summary
+
+This project was prepared for the Ceros automation take home challenge. It uses the provided framework to test saucedemo.com without any additional dependencies. Note that I had to make a couple of changes to the framework to enable it to work with a non-angular app. 
+
+I tested this on a clean system, but please feel free to reach out to quinn.powell@gmail.com with any questions or issues. 
+
+- Quinn
+
 ## Setup:
 * Install [Node](http://nodejs.org) (v8.x.x or later)
 * `npm i` to install the project dependencies

@@ -9,6 +9,7 @@ import swagLabsCheckoutCompletePage from "../pages/swagLabsCheckoutCompletePage.
 
 describe ('Swag Labs tests', () => {
     beforeAll(async () => {
+        // saucedemo.com is not an angular application
         browser.waitForAngularEnabled(false);
         await swaglabsLoginPage.goto();
     });

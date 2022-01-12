@@ -1,4 +1,4 @@
-import { browser, by, element } from 'protractor';
+import { browser, by, element, ElementArrayFinder } from 'protractor';
 import BasePage from './basePage';
 
 class SwaglabsCartPage extends BasePage {
@@ -22,35 +22,63 @@ class SwaglabsCartPage extends BasePage {
         };
     }
 
+    /**
+     * Go to the cart page and make sure it loaded
+     * Assumes the user has logged in already
+     */
     async goto() {
         await browser.get(this.url, this.timeout.xl);
         await this.checkoutBtnPresent();
     }
 
+    /**
+     * Checks if the checkout button is present
+     * @return {Promise} - resolves to true or false
+     */
     async checkoutBtnPresent() {
         return browser.wait(this.inDom(element(this.checkoutBtnBy)), 
             5000, 'Timed out waiting for checkout button to load');
     }
 
+    /**
+     * Gets the list of all items in the cart
+     * @return {ElementArrayFinder}
+     */
     getCartList() {
         return element.all(this.cartItemBy);
     }
 
+    /**
+     * Gets the text of a given cart item
+     * @param  {elementFinder} cartItem
+     * @return {string}
+     */
     getItemText(cartItem) {
         return cartItem.$(".inventory_item_name").getText();
     }
 
+    /**
+     * Click the checkout button
+     */
     async clickCheckout() {
         await element(this.cartCheckoutBy).click();
         await browser.wait(element(this.checkoutInfoFormBy), 5000)
     }
 
+    /**
+     * Fill the checkout form with fake person data
+     */
     async fillCheckoutInfo() {
         for (const field in this.checkoutInfo) {
             await element(this.checkoutInfoFieldBys[field]).sendKeys(this.checkoutInfo[field]);
         }
     }
 
+    /**
+     * Get the quantity of a given item in the cart
+     * @param  {elementFinder} cartItem
+     * @return {Promise} - resolves with a string 
+     */
     async getItemQuantity(cartItem) {
         return cartItem.$(".cart_quantity").getText();
     }
