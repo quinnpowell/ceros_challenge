@@ -8,6 +8,10 @@ class SwaglabsLoginPage extends BasePage {
             username: "standard_user",
             password: "secret_sauce"
         };
+        this.adminUserData = {
+            username: "admin",
+            password: "admin"
+        };
         this.usernameBy = by.id("user-name");
         this.passwordBy = by.id("password");
         this.loginButtonBy = by.id("login-button");
@@ -35,6 +39,13 @@ class SwaglabsLoginPage extends BasePage {
      */
     async loginStandardUser() {
         await this.login(this.standardUserData);
+    }
+
+    /**
+     * Login with the admin user
+     */
+    async loginAdminUser() {
+        await this.login(this.adminUserData);
     }
 }
 export default new SwaglabsLoginPage();
