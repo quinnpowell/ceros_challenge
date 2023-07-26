@@ -27,18 +27,13 @@ describe ('Swag Labs tests', () => {
 
     it('should add an item to the cart', async () => {
         await swaglabsInventoryPage.goto();
-        const inventoryList = swaglabsInventoryPage.getInventoryList();
-        const firstItem = inventoryList.first();
-        const firstItemAddBtn = swaglabsInventoryPage.getAddToCartBtn(firstItem);
-        const firstItemText = swaglabsInventoryPage.getItemText(firstItem);
-        const shoppingCart = swaglabsInventoryPage.getShoppingCart();
-        await firstItemAddBtn.click();
-        await shoppingCart.click();
+        await swaglabsInventoryPage.addItemToCart();
         expect(await swaglabsCartPage.checkoutBtnPresent()).toBe(true);
         const cartList = swaglabsCartPage.getCartList();
         expect(await cartList.count()).toBe(1);
         const cartItem = cartList.first();
         expect(await swaglabsCartPage.getItemQuantity(cartItem)).toBe("1");
+        const firstItemText = swaglabsInventoryPage.getItemText(firstItem);
         expect(await swaglabsCartPage.getItemText(cartItem)).toBe(firstItemText);
     });
 
@@ -70,4 +65,4 @@ describe ('Swag Labs tests', () => {
         const productListZToA = [...productListMap].sort().reverse();
         expect(productListMap).toEqual(productListZToA);
     });
-})
+}
