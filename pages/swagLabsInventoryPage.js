@@ -94,5 +94,17 @@ class SwaglabsInventoryPage extends BasePage {
         return element(this.shoppingCartBy)
     }
 
+    /**
+     * Adds the first item to the cart
+     */
+    async addItemToCart() {
+        const inventoryList = this.getInventoryList();
+        const firstItem = inventoryList.first();
+        const firstItemAddBtn = this.getAddToCartBtn(firstItem);
+        const shoppingCart = this.getShoppingCart();
+        await firstItemAddBtn.click();
+        await shoppingCart.click();
+    }
+
 }
 export default new SwaglabsInventoryPage();
